@@ -1,26 +1,28 @@
 plugins {
-    id 'java-library'
+    id 'java'
 }
+
+group 'guru.qa'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
-compileTestJava {
-    options.encoding = 'UTF-8'
+dependencies {
+    testImplementation (
+            "com.codeborne:selenide:6.15.0",
+            "org.junit.jupiter:junit-jupiter:5.9.3",
+            "org.slf4j:slf4j-simple:2.0.6"
+    )
+
 }
 
-dependencies {
-    testImplementation(
-            "com.codeborne:selenide:6.11.2",
-            "org.junit.jupiter:junit-jupiter:5.9.2"
-    )
+tasks.withType (JavaCompile) {
+    options.encoding = 'UTF-8'
+
 }
 
 test {
-    useJUnitPlatform{
-
-        systemProperty "env", "prod"
-
-    }
+    useJUnitPlatform()
 }
