@@ -33,8 +33,13 @@ public class SelenideWiki {
         $("#wiki-pages-filter").setValue("SoftAssertions");
         $("a[href='/selenide/selenide/wiki/SoftAssertions']").click();
 
+        //$("#wiki-body").setValue("Soft Assertions").click();
+
         //проверьте что внутри есть пример кода для JUnit5
-        $("#user-content-3-using-junit5-extend-test-class").shouldBe(Condition.visible).scrollTo();
+        //$("#user-content-3-using-junit5-extend-test-class").shouldBe(Condition.visible).scrollTo();
+        $("#wiki-body").shouldHave(Condition.text("$(\"#first\").should(visible).click();"));
+        $("#wiki-body").shouldHave(Condition.text("$(\"#second\").should(visible).click();"));
+
     }
 
 
