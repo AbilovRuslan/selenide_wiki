@@ -20,8 +20,8 @@ public class SelenideWiki {
 
     }
     @Test
-     void SelenideWiki() {
-        //Откройте  Github
+     void selenideWiki() {
+        //Откроsте  Github
         open ("https://github.com");
         $("[placeholder='Search GitHub']").setValue("selenide").pressEnter();
         // Откройте страницу Selenide
